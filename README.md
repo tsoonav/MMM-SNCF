@@ -52,10 +52,10 @@ To use this module, add it to the modules array in the `config/config.js` file:
         departureStationUIC: "stop_area:OCE:SA:87286005",
         arrivalStationUIC: "stop_area:OCE:SA:87286583",
         apiKey: "", // You must add your API key
-	numberDays: 2,
+	    numberDays: 2,
         dateFormat: 'dddd HH:mm', // display for example with french locale Jeudi 08:43
-        displayCo2: true,
-        coverage: "fr-ne",
+        displayC02: true,
+        coverage: "sncf",
     }
 },
 ```
@@ -82,7 +82,7 @@ The following properties can be configured:
 | `displayC02` | Display the C02 emissions for your trip. <br><br> **Possible values:** `true` or `false` <br> **Default value:** `false`
 | `displayHeaders` | Display columns headers. <br><br> **Possible values:** `true` or `false` <br> **Default value:** `true`
 | `dateFormat` | Format to use for the date of train.<br> **Caution:**<br>h display hours in 12h format / H in 24h<br>for minutes, it is mm. MM display the month number<br><br> **Possible values:** [Moment.js formats](https://momentjs.com/docs/#/parsing/string-format/) <br> **Default value:** `llll`
-| `coverage` | Coverage of departure station **REQUIRED**<br>[Check your coverage](https://www.navitia.io/datasets) Select a city near your departure station and check the coverage
+| `coverage` | Coverage of departure station<br>[Check your coverage](https://www.navitia.io/datasets) Select a city near your departure station and check the coverage (From now coverage is always sncf)
 
 ## Further information and support
 
