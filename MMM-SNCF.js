@@ -25,6 +25,7 @@ Module.register("MMM-SNCF", {
         displayDestination: false,
         displayC02: false,
         displayHeaders: true,
+        coverage: 'sncf'
     },
 
     // Define required scripts.
@@ -95,7 +96,7 @@ Module.register("MMM-SNCF", {
             // adding next schedules
             for (var t in this.transports) {
                 var transport = this.transports[t];
-
+                
                 var row = document.createElement("tr");
                 row.className = "tr-transilien" + " " + transport.state + " " + transport.endOfJourney;
 
@@ -156,17 +157,17 @@ Module.register("MMM-SNCF", {
                 else if (transport.state == "NO_SERVICE") {
                     stateCell.innerHTML = "<span class='deleted'><i class='fa fa-ban' aria-hidden='true'></i>&nbsp" + this.translate("deleted") + "</span>";
                 }
+                else if (transport.delay != "" && transport.delay !== null) {
+                    stateCell.innerHTML = "<span class='state'><i class='fa fa-clock-o' aria-hidden='true'></i>&nbsp" + this.translate("delay") + "&nbsp" + transport.delay + " minutes" + "</span>";
+                }
                 else if (transport.state != "") {
                     stateCell.innerHTML = "<span class='state'><i class='fa fa-exclamation-triangle aria-hidden='true'></i>&nbsp" + transport.state + "</span>";
-                }
-                else if (transport.delay != "" && transport.delay !== null) {
-                    stateCell.innerHTML = "<span class='state'><i class='fa fa-clock-o' aria-hidden='true'></i>&nbsp" + this.translate("delay") + "&nbsp" + transport.delay + "</span>";
                 }
                 else {
                     stateCell.innerHTML = "<span class='on-time'>" + this.translate("on_time") + "</span>";
                 }
 
-                if (transport.disruptionInfo !== null) {
+                if (transport.disruptionInfo != null && transport.disruptionInfo.hasOwnProperty("cause")) {
                     stateCell.innerHTML += "<br /><span class='disruption-cause'>" + transport.disruptionInfo.cause + "</span>";
                 }
 
