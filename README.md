@@ -1,5 +1,10 @@
 # MMM-SNCF
 
+---------------------------------------------------------------------------------------------
+Seems not working any more...
+If someone want to take the project back to life, do not hesitate, I transfer it to you
+---------------------------------------------------------------------------------------------
+
 MMM-SNCF was developped from the ![MMM-Transilien](https://github.com/lgmorand/MMM-Transilien) module.
 
 ## WARNING
